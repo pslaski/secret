@@ -1,0 +1,9 @@
+/.sass-cache
+/target
+/.project
+/.settings
+/.classpath
+/web-app/WEB-INF/classes
+/web-app/upload/*
+/stacktrace.log
+
