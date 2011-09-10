@@ -7,10 +7,11 @@ class Event {
 		description maxSize: 50000
 		details maxSize: 50000
 		authorName blank: false
+		performer nullable: true
     }
-	static hasMany = [owner: Author, events: Event, tasks: Task]
+	static hasMany = [tasks: Task]
 	
-	static belongsTo = [Author]
+	static belongsTo = MainEvent
 	static mapping = {
 	}
 	
@@ -18,10 +19,11 @@ class Event {
 	String description
 	String details
 	String authorName
+	Author performer
 	Date dateCreated
 	Date dateEventStart
 	Date dateEventEnd
-	
+	boolean state
 	
 	
 	
