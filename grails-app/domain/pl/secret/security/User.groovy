@@ -2,7 +2,7 @@ package pl.secret.security
 
 class User {
 
-	transient springSecurityService
+	//transient springSecurityService
 
 	String username
 	String password
@@ -23,7 +23,8 @@ class User {
 	Set<Role> getAuthorities() {
 		UserRole.findAllByUser(this).collect { it.role } as Set
 	}
-
+	
+/*// jedno z tych gowien robilo ze nie mozna bylo sie zalogowac jako admin.
 	def beforeInsert() {
 		encodePassword()
 	}
@@ -36,5 +37,5 @@ class User {
 
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
-	}
+	} */
 }
