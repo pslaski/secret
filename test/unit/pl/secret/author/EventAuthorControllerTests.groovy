@@ -1,0 +1,17 @@
+package pl.secret.author
+
+import grails.test.*
+
+class EventAuthorControllerTests extends ControllerUnitTestCase {
+    protected void setUp() {
+        super.setUp()
+    }
+
+    protected void tearDown() {
+        super.tearDown()
+    }
+
+    void testSomething() {
+
+    }
+}
