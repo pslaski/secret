@@ -8,7 +8,7 @@ class Event {
 		details maxSize: 50000
 		authorName blank: false
     }
-	static hasMany = [owner: Author, events: Event]
+	static hasMany = [owner: Author, events: Event, tasks: Task]
 	
 	static belongsTo = [Author]
 	static mapping = {
