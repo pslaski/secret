@@ -5,5 +5,5 @@ import grails.plugins.springsecurity.Secured
 @Secured(['ROLE_ADMIN'])
 class AuthorAdminController {
 
-   	static scaffold = Author
+    static scaffold = Author
 }
