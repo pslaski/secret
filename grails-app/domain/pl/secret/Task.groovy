@@ -13,13 +13,14 @@ class Task {
 	static hasMany = [performers: Author]
 	
 	TaskType type
-	boolean state
+	StateType state
 	String name
 	String description
 	String details
 	String authorName 
 	Date deadline
 	Date dateDone
+	Date dateCreated
 	
 	
 	String toString(){
@@ -65,4 +66,8 @@ public enum TaskType {
 	 * inne zadania
 	 */
 	OTHER
+}
+
+public enum StateType {
+	DONE, UNDONE, INPROGRESS, REJECTED
 }

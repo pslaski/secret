@@ -23,7 +23,7 @@ class Event {
 	Date dateCreated
 	Date dateEventStart
 	Date dateEventEnd
-	boolean state
+	StateType state
 	
 	
 	

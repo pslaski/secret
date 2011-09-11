@@ -21,7 +21,7 @@ class MainEvent {
 	Date dateCreated
 	Date dateMainEventStart
 	Date dateMainEventEnd
-	boolean state
+	StateType state
 	
 	String toString(){
 		return name

@@ -5,7 +5,7 @@ import pl.secret.security.User
 class Author extends User{
 
 	
-	static hasMany = [createdEvents: Event, doingEvents: Event, tasks: Task]
+	static hasMany = [mainEvents: MainEvent, events: Event, tasks: Task]
     static constraints = {
 		name blank:false
 		surname blank: false
