@@ -7,6 +7,8 @@ import grails.plugins.springsecurity.Secured
 class TaskAuthorController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def springSecurityService
 
     def index = {
         redirect(action: "list", params: params)
@@ -25,6 +27,8 @@ class TaskAuthorController {
 
     def save = {
         def taskInstance = new Task(params)
+		def userInstance = springSecurityService.currentUser
+		taskInstance.authorName = userInstance.username
         if (taskInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'task.label', default: 'Task'), taskInstance.id])}"
             redirect(action: "show", id: taskInstance.id)

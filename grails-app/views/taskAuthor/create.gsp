@@ -55,14 +55,7 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="authorName"><g:message code="task.authorName.label" default="Author Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'authorName', 'errors')}">
-                                    <g:textField name="authorName" value="${taskInstance?.authorName}" />
-                                </td>
-                            </tr>
+                            
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

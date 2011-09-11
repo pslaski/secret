@@ -7,6 +7,8 @@ class MainEventAdminController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	def springSecurityService
+	
     def index = {
         redirect(action: "list", params: params)
     }
@@ -24,6 +26,8 @@ class MainEventAdminController {
 
     def save = {
         def mainEventInstance = new MainEvent(params)
+		def userInstance = springSecurityService.currentUser
+		mainEventInstance.authorName = userInstance.username
         if (mainEventInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'mainEvent.label', default: 'MainEvent'), mainEventInstance.id])}"
             redirect(action: "show", id: mainEventInstance.id)

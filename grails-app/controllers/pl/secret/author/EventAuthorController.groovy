@@ -6,6 +6,8 @@ import grails.plugins.springsecurity.Secured
 class EventAuthorController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def springSecurityService
 
     def index = {
         redirect(action: "list", params: params)
@@ -24,6 +26,8 @@ class EventAuthorController {
 
     def save = {
         def eventInstance = new Event(params)
+		def userInstance = springSecurityService.currentUser
+		eventInstance.authorName = userInstance.username
         if (eventInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'event.label', default: 'Event'), eventInstance.id])}"
             redirect(action: "show", id: eventInstance.id)

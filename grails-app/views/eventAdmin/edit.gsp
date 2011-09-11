@@ -58,14 +58,7 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="authorName"><g:message code="event.authorName.label" default="Author Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'authorName', 'errors')}">
-                                    <g:textField name="authorName" value="${eventInstance?.authorName}" />
-                                </td>
-                            </tr>
+                            
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
