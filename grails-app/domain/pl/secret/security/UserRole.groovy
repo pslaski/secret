@@ -31,7 +31,7 @@ class UserRole implements Serializable {
 	static UserRole create(User user, Role role, boolean flush = false) {
 		new UserRole(user: user, role: role).save(flush: flush, insert: true)
 	}
-
+	/*
 	static boolean remove(User user, Role role, boolean flush = false) {
 		UserRole instance = UserRole.findByUserAndRole(user, role)
 		if (!instance) {
@@ -40,6 +40,11 @@ class UserRole implements Serializable {
 
 		instance.delete(flush: flush)
 		true
+	} */
+	
+	static boolean remove(User user, Role role, boolean flush = false) {
+		UserRole instance = UserRole.findByUserAndRole(user, role)
+		instance ? instance.delete(flush: flush) : false
 	}
 
 	static void removeAll(User user) {

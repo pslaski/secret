@@ -93,3 +93,8 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'pl.secret.security.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'pl.secret.security.UserRole'
 grails.plugins.springsecurity.authority.className = 'pl.secret.security.Role'
+
+secret.admin.username = 'secretny'
+secret.admin.password = 'system'
+secret.admin.name = 'sysName'
+secret.admin.surname = 'sysSurname'

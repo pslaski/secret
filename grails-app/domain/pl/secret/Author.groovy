@@ -11,10 +11,7 @@ class Author extends User{
 		surname blank: false
     }
 	
-	String name
-	String surname
-	
 	String toString(){
-		return name+" "+surname
+		return username+": "+name+" "+surname
 	}
 }
