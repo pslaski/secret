@@ -24,11 +24,11 @@ class AdminService {
 		}
 	}
 	
-	def updateCustomer(Author author) {
+	def updateAuthor(Author author) {
 		authorService.updateWithoutRoles(author)
 	}
 	
-	def deleteCustomers(def authorsList) {
+	def deleteAuthors(def authorsList) {
 		for (def authorId in authorsList) {
 			def author = Author.get(authorId)
 			authorService.delete(author)
