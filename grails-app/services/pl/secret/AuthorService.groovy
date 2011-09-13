@@ -19,7 +19,7 @@ class AuthorService {
 		generator.setSeed(new Date().time)
 	}
 
-	def create(Author author, def locations) {
+	def create(Author author) {
 		author.save()
 
 		def role = Role.findByAuthority("ROLE_USER")
