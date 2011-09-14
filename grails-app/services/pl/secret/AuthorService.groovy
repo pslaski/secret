@@ -19,7 +19,7 @@ class AuthorService {
 		generator.setSeed(new Date().time)
 	}
 
-	def create(Author author) {
+	def createAuthor(Author author) {
 		author.save()
 
 		def role = Role.findByAuthority("ROLE_USER")
@@ -33,7 +33,7 @@ class AuthorService {
 		author
 	}
 
-	def delete(Author author) {
+	def deleteAuthor(Author author) {
 		// tu wyrzucanie powiazan z autorem
 		UserRole.removeAll author
 		author.delete(flush: true)
@@ -44,6 +44,12 @@ class AuthorService {
 		author.password = springSecurityService.encodePassword(newPassword)
 		author.save()
 		return newPassword
+	}
+	//------------
+	def getAuthors(def params) {
+		def role = Role.findByAuthority("ROLE_USER")
+		def authors = UserRole.findAllByRole(role, params).collect { it.user }
+		return [authors: authors, authorsTotal: UserRole.findAllByRole(role).size()]
 	}
 
 }

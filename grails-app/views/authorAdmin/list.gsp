@@ -37,20 +37,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${authorInstanceList}" status="i" var="authorInstance">
+                    <g:each in="${authors}" status="i" var="author">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${authorInstance.id}">${fieldValue(bean: authorInstance, field: "id")}</g:link></td>
+                            <td><g:link action="show" id="${author.id}">${fieldValue(bean: author, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: authorInstance, field: "username")}</td>
+                            <td>${fieldValue(bean: author, field: "username")}</td>
                         
-                            <td>${fieldValue(bean: authorInstance, field: "password")}</td>
+                            <td>${fieldValue(bean: author, field: "password")}</td>
                         
-                            <td>${fieldValue(bean: authorInstance, field: "name")}</td>
+                            <td>${fieldValue(bean: author, field: "name")}</td>
                         
-                            <td>${fieldValue(bean: authorInstance, field: "surname")}</td>
+                            <td>${fieldValue(bean: author, field: "surname")}</td>
                         
-                            <td><g:formatBoolean boolean="${authorInstance.accountExpired}" /></td>
+                            <td><g:formatBoolean boolean="${author.accountExpired}" /></td>
                         
                         </tr>
                     </g:each>
@@ -58,8 +58,8 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${authorInstanceTotal}" />
-            </div>
+                <g:paginate total="${authorsTotal}" />
+            </div> 
         </div>
     </body>
 </html>

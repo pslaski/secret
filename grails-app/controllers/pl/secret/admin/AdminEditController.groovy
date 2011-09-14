@@ -107,21 +107,8 @@ class NewAdminCommand {
 	String surname
 	String password
 	String repeatPassword
-}
-
-// potem przenieść to do jakiejś innej paczki
-class UserPassswordChangeCommand {
-	static constraints = {
-		password blank: false, minSize: 6
-		repeatPassword validator: {val, obj ->
-			if (val != obj.password) {
-				return "passwordsDoNotMatch"
-			}
-			return true
-		}
-	}
-
-	String password
-	String repeatPassword
-	int id
+	boolean enabled = true
+	boolean accountExpired
+	boolean accountLocked
+	boolean passwordExpired
 }
