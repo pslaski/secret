@@ -16,6 +16,12 @@ class AdminEditController {
 		return adminService.getAdmins()
 	}
 	
+	def show = {
+		def user = Admin.get(params.id)
+		//println user.password	
+		render view: "show", model: [admin: user]
+	}
+	
 	def edit = {
 		def user = Admin.get(params.id)
 		[admin: user]
@@ -40,7 +46,7 @@ class AdminEditController {
 	
 	def delete = {
         def user = Admin.get(params.id)
-		adminService.deleteAdmin(user)
+		
         flash.message = "admin.admin.deleted"
         redirect action: 'list'
     }
@@ -111,4 +117,20 @@ class NewAdminCommand {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+}
+
+class ChangePasswordCommand {
+	String currentPassword
+	String newPassword
+	String repeatPassword
+	static constraints = {
+		repeatPassword validator: {val, obj ->
+			if (val != obj.newPassword) {
+				return "passwordsDoNotMatch"
+			}
+			return true
+		}
+		newPassword blank: false
+		currentPassword blank: false
+	}
 }

@@ -91,7 +91,7 @@
 		<div class='fheader'><center><g:message code="login.header"/></center></div>
 
 		<g:if test='${flash.message}'>
-			<div class='login_message'>${flash.message}</div>
+			<div class='login_message'><g:message code="login.fail.message"/></div>
 		</g:if>
 
 		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
