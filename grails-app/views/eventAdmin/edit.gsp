@@ -57,9 +57,7 @@
                                     <g:textArea name="details" cols="40" rows="5" value="${eventInstance?.details}" />
                                 </td>
                             </tr>
-                        
-                            
-                        
+                                                                            
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="performer"><g:message code="event.performer.label" default="Performer" /></label>

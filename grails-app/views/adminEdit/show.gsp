@@ -29,7 +29,7 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="default.name.label" default="Userame" /></td>
+                            <td valign="top" class="name"><g:message code="default.username.label" default="Userame" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: admin, field: "username")}</td>
                             
@@ -55,7 +55,74 @@
                             <td valign="top" class="value">${fieldValue(bean: admin, field: "surname")}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="default.accountExpired.label" default="Account Expired" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${admin.accountExpired}" /></td>
+                            
+                        </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="default.accountLocked.label" default="Account Locked" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${admin.accountLocked}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="default.enabled.label" default="Enabled" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${admin.enabled}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="default.events.label" default="Events" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${admin.events}" var="e">
+                                    <li><g:link controller="event" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="default.mainEvents.label" default="Main Events" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${admin.mainEvents}" var="m">
+                                    <li><g:link controller="mainEvent" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="author.passwordExpired.label" default="Password Expired" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${admin.passwordExpired}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="author.tasks.label" default="Tasks" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${admin.tasks}" var="t">
+                                    <li><g:link controller="task" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                                           
                     </tbody>
                 </table>
             </div>

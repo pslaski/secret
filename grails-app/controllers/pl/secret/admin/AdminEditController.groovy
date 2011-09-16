@@ -6,7 +6,7 @@ import grails.plugins.springsecurity.Secured
 
 @Secured(['ROLE_ADMIN'])
 class AdminEditController {
-
+	static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	static defaultAction = "list"
 	def springSecurityService
 	def adminService
@@ -18,22 +18,28 @@ class AdminEditController {
 	
 	def show = {
 		def user = Admin.get(params.id)
-		//println user.password	
 		render view: "show", model: [admin: user]
 	}
 	
 	def edit = {
 		def user = Admin.get(params.id)
-		[admin: user]
+		println "!!!!!!!!!!!"+user
+		render view: "edit", model: [admin: user]
 	}	
-
+	
 	def update = {
-		def user = Admin.get(params.id)
-		bindData(user, params, ['id'])
+		
+		def admin = Admin.get(params.id)
+		println "!!!!!!!!!!"+admin.username
+		bindData(admin, params, ['id'])
 		try {
-			adminService.updateAdmin(user)
-		} catch(e) {
-			render view: "edit", model: [admin: user]
+			
+			if (!admin.validate()) {
+				throw e
+			}
+			adminService.updateAdmin(admin)
+			} catch(e) {
+			render view: "edit", model: [admin: admin]
 		}
 		flash.message = "admin.admin.updated"
 		redirect action: "list"
@@ -114,23 +120,7 @@ class NewAdminCommand {
 	String password
 	String repeatPassword
 	boolean enabled = true
-	boolean accountExpired
-	boolean accountLocked
-	boolean passwordExpired
-}
-
-class ChangePasswordCommand {
-	String currentPassword
-	String newPassword
-	String repeatPassword
-	static constraints = {
-		repeatPassword validator: {val, obj ->
-			if (val != obj.newPassword) {
-				return "passwordsDoNotMatch"
-			}
-			return true
-		}
-		newPassword blank: false
-		currentPassword blank: false
-	}
+	boolean accountExpired = false
+	boolean accountLocked = false 
+	boolean passwordExpired = false
 }
