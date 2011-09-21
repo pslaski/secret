@@ -184,6 +184,8 @@
 				</div>
 				</br>
 				<div class="summary">
+				<g:hiddenField name="id" value="${admin?.id}" />
+				<g:hiddenField name="version" value="${admin?.version}" />
 					<button type="submit" class="submit" name="_action_update">
 						<g:message code="default.button.update.label" />
 					</button>

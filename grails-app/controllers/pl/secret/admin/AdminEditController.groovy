@@ -23,14 +23,12 @@ class AdminEditController {
 	
 	def edit = {
 		def user = Admin.get(params.id)
-		println "!!!!!!!!!!!"+user
 		render view: "edit", model: [admin: user]
 	}	
 	
 	def update = {
 		
 		def admin = Admin.get(params.id)
-		println "!!!!!!!!!!"+admin.username
 		bindData(admin, params, ['id'])
 		try {
 			
@@ -51,10 +49,17 @@ class AdminEditController {
 	
 	
 	def delete = {
-        def user = Admin.get(params.id)
+        def admin = Admin.get(params.id)
+		if(!(springSecurityService.currentUser.username.compareTo(admin.username) == 0)){
+			adminService.deleteAdmin(admin)
+			flash.message = "admin.admin.deleted"
+			redirect action: 'list'
+		} else {
+		flash.message = "admin.admin.deletedByMyself"
+		redirect action: 'list'
+		}
 		
-        flash.message = "admin.admin.deleted"
-        redirect action: 'list'
+        
     }
 	
 	def changePassword = { UserPassswordChangeCommand passwordCommand ->
