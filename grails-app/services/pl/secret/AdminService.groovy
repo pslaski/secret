@@ -51,8 +51,8 @@ class AdminService {
 	} */
 	
 	def updateAdmin(def admin) {
-		//admin.save()
-		authorService.updateWithoutRoles(admin)
+		admin.save()
+		//authorService.updateWithoutRoles(admin)
 	}
 
 	def createAdmin(def admin) {

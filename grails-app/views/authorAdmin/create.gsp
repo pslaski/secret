@@ -16,9 +16,9 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${authorInstance}">
+            <g:hasErrors bean="${author}">
             <div class="errors">
-                <g:renderErrors bean="${authorInstance}" as="list" />
+                <g:renderErrors bean="${author}" as="list" />
             </div>
             </g:hasErrors>
             <g:form action="save" >
@@ -111,41 +111,7 @@
 								</td>
                         	</tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="accountExpired"><g:message code="author.accountExpired.label" default="Account Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: authorInstance, field: 'accountExpired', 'errors')}">
-                                    <g:checkBox name="accountExpired" value="${author.accountExpired}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="accountLocked"><g:message code="author.accountLocked.label" default="Account Locked" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: authorInstance, field: 'accountLocked', 'errors')}">
-                                    <g:checkBox name="accountLocked" value="${author.accountLocked}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="enabled"><g:message code="author.enabled.label" default="Enabled" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: authorInstance, field: 'enabled', 'errors')}">
-                                    <g:checkBox name="enabled" value="${author.enabled}" checked="checked" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="passwordExpired"><g:message code="author.passwordExpired.label" default="Password Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: authorInstance, field: 'passwordExpired', 'errors')}">
-                                    <g:checkBox name="passwordExpired" value="${author.passwordExpired}" />
-                                </td>
-                            </tr>             
+                                    
                         </tbody>
                     </table>
                     </br>

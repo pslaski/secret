@@ -86,41 +86,7 @@
 								</td>
                         	</tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="accountExpired"><g:message code="author.accountExpired.label" default="Account Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: admin, field: 'accountExpired', 'errors')}">
-                                    <g:checkBox name="accountExpired" value="${admin.accountExpired}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="accountLocked"><g:message code="author.accountLocked.label" default="Account Locked" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: admin, field: 'accountLocked', 'errors')}">
-                                    <g:checkBox name="accountLocked" value="${admin.accountLocked}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="enabled"><g:message code="author.enabled.label" default="Enabled" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: admin, field: 'enabled', 'errors')}">
-                                    <g:checkBox name="enabled" value="${admin.enabled}" checked="checked" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="passwordExpired"><g:message code="author.passwordExpired.label" default="Password Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: admin, field: 'passwordExpired', 'errors')}">
-                                    <g:checkBox name="passwordExpired" value="${admin.passwordExpired}" />
-                                </td>
-                            </tr>             
+                                 
                         </tbody>
                     </table>
                     </br>

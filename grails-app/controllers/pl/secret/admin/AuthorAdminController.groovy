@@ -33,7 +33,7 @@ class AuthorAdminController {
 	
 	def edit = {
 		def user = Author.get(params.id)
-		[author: user]
+		render view: "edit", model: [authorInstance: user]
 	}
 
 	def update = {
@@ -42,7 +42,7 @@ class AuthorAdminController {
 		try {
 			authorService.updateWithoutRoles(user)
 		} catch(e) {
-			render view: "edit", model: [author: user]
+			render view: "edit", model: [authorInstance: user]
 		}
 		flash.message = "admin.author.updated"
 		redirect action: "list"
