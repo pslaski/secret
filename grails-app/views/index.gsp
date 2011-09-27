@@ -95,6 +95,12 @@
                     </g:each>
                 </ul>
             </div>
+            <fullcal:calendar id="cal">
+    header: { left: "", center: "", right: "prev, today, next" },
+    columnFormat: { week: 'ddd d/M' },
+    timeFormat: 'HH:mm{ - HH:mm}',
+    editable: true
+</fullcal:calendar>
         </div>
     </body>
 </html>
