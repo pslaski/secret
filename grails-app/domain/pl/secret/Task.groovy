@@ -18,15 +18,39 @@ class Task {
 	String description
 	String details
 	String authorName 
-	Date deadline
-	Date dateDone
-	Date dateCreated
-	
+	Date deadlineDate // dedlajn
+	Date dateEnd // normalne, ręczne zakonczenie
+	Date dateCreated // data utworzenia
 	
 	String toString(){
 		return name
 	}
 	
+	/**
+	* zmiana stanu w zależności od upływu czasu
+	*/
+   void changeState() {
+	   def today = new Date()
+	   def isDateBefore = { first, second ->
+		   return (first.getTime() - second.getTime() <= 0)
+	   }
+	   switch (state) {
+		   case StateType.UNDONE:		   
+			   if (isDateBefore(deadlineDate, today)) {
+				   state = StateType.FAILED // jam dorian pamietam ze mam tu wrocic jeszcze
+			   }
+		   break;
+		   case StateType.INPROGRESS:
+		   		if (isDateBefore(deadlineDate, today)) {
+				   state = StateType.FAILED
+				}
+		   break;
+		   case StateType.REJECTED:
+		   		if (isDateBefore(deadlineDate, today)) {
+				   state = StateType.FAILED 
+				}
+		   }
+   }
 }
 
 public enum TaskType {
@@ -69,5 +93,28 @@ public enum TaskType {
 }
 
 public enum StateType {
-	DONE, UNDONE, INPROGRESS, REJECTED
+	/* 
+	 * Skończone
+	 */
+	DONE, 
+	/*
+	 * Nie ukończone
+	 */
+	UNDONE, 
+	/* 
+	 * W trakcie
+	 */
+	INPROGRESS,
+	/*
+	 * Odrzucone
+	 */
+	REJECTED,
+	/*
+	 * Nieudane
+	 */
+	FAILED,
+	/*
+	 * Ukończone po czasie
+	 */
+	DONEAFTERDEADLINE
 }

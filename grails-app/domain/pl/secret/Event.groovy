@@ -25,8 +25,6 @@ class Event {
 	Date dateEventEnd
 	StateType state
 	
-	
-	
 	String toString(){
 		return name
 	}
