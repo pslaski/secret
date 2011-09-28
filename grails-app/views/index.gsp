@@ -81,7 +81,16 @@
             </div>
         </div>
         <div id="pageBody">
-            <h1>Welcome to Grails</h1>
+        	<%-- tak dla testów powitanie tylko --%>
+        	<mk:isAdmin>
+				 <h1>Witaj w aplikacji Secret adminie!</h1>
+			</mk:isAdmin>
+		
+			<mk:isAuthor>
+				 <h1>Witaj w aplikacji Secret autorze!</h1>
+			</mk:isAuthor>
+        	<%-- powitanie --%>
+           
             <p>Congratulations, you have successfully started your first Grails application! At the moment
             this is the default page, feel free to modify it to either redirect to a controller or display whatever
             content you may choose. Below is a list of controllers that are currently deployed in this application,
