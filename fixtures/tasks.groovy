@@ -53,6 +53,7 @@ fixture{
 		dateCreated: new Date(),
 		dateRejected: new Date()+1,
 		deadline: new Date()+1,
+		reasonRejected: 'fu ble prrr',
 		type: TaskType.ARTICLE,
 		state: StateType.REJECTED)
 	
