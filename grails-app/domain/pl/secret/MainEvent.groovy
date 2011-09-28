@@ -11,7 +11,6 @@ class MainEvent {
 		performer nullable: true
 		description maxSize: 50000
 		details maxSize: 50000
-		dateMainEventStart nullable: true
 		dateRejected nullable: true
     }
 	

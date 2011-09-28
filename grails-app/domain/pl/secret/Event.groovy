@@ -8,7 +8,6 @@ class Event {
 		details maxSize: 50000
 		authorName blank: false
 		performer nullable: true
-		dateEventEnd nullable: true
 		dateRejected nullable: true
     }
 	static hasMany = [tasks: Task]
