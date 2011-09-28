@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Welcome to Grails</title>
+<title>Secret</title>
 <meta name="layout" content="main" />
 <style type="text/css" media="screen">
 #nav {
@@ -60,7 +60,7 @@ h2 {
 		<div class="homePagePanel">
 			<div class="panelTop"></div>
 			<div class="panelBody">
-			<h1>Panel sterujÄcy</h1>
+			<h1>Panel sterujący</h1>
 				<mk:isAdmin>
 					<g:render template="/layouts/adminPanel" />
 				</mk:isAdmin>
