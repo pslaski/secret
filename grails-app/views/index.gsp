@@ -60,7 +60,7 @@ h2 {
 		<div class="homePagePanel">
 			<div class="panelTop"></div>
 			<div class="panelBody">
-			<h1>Panel sterujący</h1>
+			<h1>Panel sterujÄcy</h1>
 				<mk:isAdmin>
 					<g:render template="/layouts/adminPanel" />
 				</mk:isAdmin>
@@ -94,10 +94,12 @@ h2 {
 		<p>W aplikacji secret możesz zarządzać bla bla bla..lorem ipsum</p>
 		
 		<fullcal:calendar id="cal">
-    header: { left: "", center: "", right: "prev, today, next" },
+    header: { left: "prev, today, next", center: "title", right: "month, agendaWeek, agendaDay" },
     columnFormat: { week: 'ddd d/M' },
     timeFormat: 'HH:mm{ - HH:mm}',
-    editable: true
+    editable: true,
+    firstDay: 1,
+    weekMode: 'liquid'
 </fullcal:calendar>
 	</div>
 </body>
