@@ -7,6 +7,8 @@ class Task {
 		description maxSize: 50000
 		details maxSize: 50000
 		authorName blank: false
+		dateDone nullable: true
+		dateRejected nullable: true
     }
 	
 	static belongsTo = [Event, MainEvent, Author]
