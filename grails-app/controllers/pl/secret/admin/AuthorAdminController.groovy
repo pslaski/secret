@@ -123,9 +123,9 @@ class NewAuthorCommand {
 		String password
 		String repeatPassword
 		boolean enabled = true
-		boolean accountExpired
-		boolean accountLocked
-		boolean passwordExpired
+//		boolean accountExpired
+		boolean accountLocked = false
+//		boolean passwordExpired
 	}
 	
 	// potem przenieść to do jakiejś innej paczki

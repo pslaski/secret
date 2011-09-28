@@ -34,14 +34,14 @@
                             <td valign="top" class="value">${fieldValue(bean: admin, field: "username")}</td>
                             
                         </tr>
-                    
+                    	<%-- 
                     	 <tr class="prop">
                             <td valign="top" class="name"><g:message code="default.password.label" default="Password" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: admin, field: "password")}</td>
                             
                         </tr>
-                    
+                    	--%>
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="default.name.label" default="Name" /></td>
                             
@@ -55,14 +55,7 @@
                             <td valign="top" class="value">${fieldValue(bean: admin, field: "surname")}</td>
                             
                         </tr>
-                        
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="default.accountExpired.label" default="Account Expired" /></td>
-                            
-                            <td valign="top" class="value"><g:formatBoolean boolean="${admin.accountExpired}" /></td>
-                            
-                        </tr>
-                    
+                                            
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="default.accountLocked.label" default="Account Locked" /></td>
                             
@@ -100,13 +93,6 @@
                                 </g:each>
                                 </ul>
                             </td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="author.passwordExpired.label" default="Password Expired" /></td>
-                            
-                            <td valign="top" class="value"><g:formatBoolean boolean="${admin.passwordExpired}" /></td>
                             
                         </tr>
                     

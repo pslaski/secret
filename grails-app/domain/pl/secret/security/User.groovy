@@ -11,9 +11,9 @@ class User {
 	String name
 	String surname
 	boolean enabled = true
-	boolean accountExpired = false
-	boolean accountLocked = false
-	boolean passwordExpired = false
+	boolean accountExpired = false // jebany nie chce zginać
+	boolean accountLocked = false 
+	boolean passwordExpired = false // ten też
 
 	static constraints = {
 		username blank: false, unique: true

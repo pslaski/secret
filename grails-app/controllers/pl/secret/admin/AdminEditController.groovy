@@ -39,7 +39,7 @@ class AdminEditController {
 			} catch(e) {
 			render view: "edit", model: [admin: admin]
 		}
-		flash.message = "admin.admin.updated"
+		flash.message = "${message(code: 'admin.updateSuccess')}"
 		redirect action: "list"
 	}
 
@@ -75,7 +75,8 @@ class AdminEditController {
 			render view: 'editPassword', model: [passwordCommand: passwordCommand]
 			return
 		}
-		redirect action: 'edit', id: passwordCommand.id
+		flash.message = "${message(code: 'admin.passwordChangeSuccess')}"
+		redirect action: 'show', id: passwordCommand.id
 	}
 
     def create = {
@@ -101,7 +102,7 @@ class AdminEditController {
 			render view: 'create', model: [admin: command]
 			return
 		}
-		flash.message = 'admin.creationSuccess'
+		flash.message = "${message(code: 'admin.creationSuccess')}"
 		redirect action: 'list'
 
     }
@@ -125,7 +126,7 @@ class NewAdminCommand {
 	String password
 	String repeatPassword
 	boolean enabled = true
-	boolean accountExpired = false
+//	boolean accountExpired = false
 	boolean accountLocked = false 
-	boolean passwordExpired = false
+//	boolean passwordExpired = false
 }

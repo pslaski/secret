@@ -85,8 +85,28 @@
 									</div>
 								</td>
                         	</tr>
-                        
-                                 
+                        	
+                        	<tr class="prop">
+							<td valign="top" class="name"><label for="accountLocked"><g:message
+										code="default.accountLocked.label" default="Account Locked" />
+							</label>
+							</td>
+							<td valign="top"
+								class="value ${hasErrors(bean: admin, field: 'accountLocked', 'errors')}">
+								<g:checkBox name="accountLocked" value="${admin.accountLocked}" />
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name"><label for="enabled"><g:message
+										code="default.enabled.label" default="Enabled" /> </label>
+							</td>
+							<td valign="top"
+								class="value ${hasErrors(bean: admin, field: 'enabled', 'errors')}">
+								<g:checkBox name="enabled" value="${admin.enabled}" />
+							</td>
+						</tr>
+                                          
                         </tbody>
                     </table>
                     </br>

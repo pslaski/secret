@@ -80,20 +80,8 @@
 						</tr>
 
 						<tr class="prop">
-							<td valign="top" class="name"><label for="accountExpired"><g:message
-										code="author.accountExpired.label" default="Account Expired" />
-							</label>
-							</td>
-							<td valign="top"
-								class="value ${hasErrors(bean: admin, field: 'accountExpired', 'errors')}">
-								<g:checkBox name="accountExpired"
-									value="${admin.accountExpired}" />
-							</td>
-						</tr>
-
-						<tr class="prop">
 							<td valign="top" class="name"><label for="accountLocked"><g:message
-										code="author.accountLocked.label" default="Account Locked" />
+										code="default.accountLocked.label" default="Account Locked" />
 							</label>
 							</td>
 							<td valign="top"
@@ -104,23 +92,11 @@
 
 						<tr class="prop">
 							<td valign="top" class="name"><label for="enabled"><g:message
-										code="author.enabled.label" default="Enabled" /> </label>
+										code="default.enabled.label" default="Enabled" /> </label>
 							</td>
 							<td valign="top"
 								class="value ${hasErrors(bean: admin, field: 'enabled', 'errors')}">
 								<g:checkBox name="enabled" value="${admin.enabled}" />
-							</td>
-						</tr>
-
-						<tr class="prop">
-							<td valign="top" class="name"><label for="passwordExpired"><g:message
-										code="default.passwordExpired.label" default="Password Expired" />
-							</label>
-							</td>
-							<td valign="top"
-								class="value ${hasErrors(bean: admin, field: 'passwordExpired', 'errors')}">
-								<g:checkBox name="passwordExpired"
-									value="${admin.passwordExpired}" />
 							</td>
 						</tr>
 
@@ -186,21 +162,29 @@
 				<div class="summary">
 				<g:hiddenField name="id" value="${admin?.id}" />
 				<g:hiddenField name="version" value="${admin?.version}" />
-					<button type="submit" class="submit" name="_action_update">
-						<g:message code="default.button.update.label" />
-					</button>
-					<button type="submit" class="submit" name="_action_delete"
-						onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
-						<g:message code="default.button.delete.label" />
-					</button>
-
-					<g:link class="editPassword" action="editPassword" id="${admin.id}">
-						<button name="edit_password">
-							<g:message code="default.editPassword.label" />
-						</button>
-					</g:link>
+					
 				</div>
+				
 			</fieldset>
+			<div class="buttons">
+				
+				<span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
+				<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+				<%-- te przyciski też są dobre ale brzydko wyglądają 
+				<button type="submit" class="submit" name="_action_update">
+						<g:message code="default.button.update.label" />
+				</button>
+				<button type="submit" class="submit" name="_action_delete"
+					onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">
+					<g:message code="default.button.delete.label" />
+				</button>
+				--%>
+				<g:link class="editPassword" action="editPassword" id="${admin.id}">
+					<button name="edit_password">
+						<g:message code="default.editPassword.label" />
+					</button>
+				</g:link>
+			</div>
 		</g:form>
 	</div>
 </body>
