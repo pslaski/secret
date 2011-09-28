@@ -18,8 +18,8 @@ class Task {
 	String description
 	String details
 	String authorName 
-	Date deadlineDate // dedlajn
-	Date dateEnd // normalne, ręczne zakonczenie
+	Date deadline // dedlajn
+	Date dateDone // normalne, ręczne zakonczenie
 	Date dateCreated // data utworzenia
 	
 	String toString(){
@@ -36,17 +36,17 @@ class Task {
 	   }
 	   switch (state) {
 		   case StateType.UNDONE:		   
-			   if (isDateBefore(deadlineDate, today)) {
+			   if (isDateBefore(deadline, today)) {
 				   state = StateType.FAILED // jam dorian pamietam ze mam tu wrocic jeszcze
 			   }
 		   break;
 		   case StateType.INPROGRESS:
-		   		if (isDateBefore(deadlineDate, today)) {
+		   		if (isDateBefore(deadline, today)) {
 				   state = StateType.FAILED
 				}
 		   break;
 		   case StateType.REJECTED:
-		   		if (isDateBefore(deadlineDate, today)) {
+		   		if (isDateBefore(deadline, today)) {
 				   state = StateType.FAILED 
 				}
 		   }
