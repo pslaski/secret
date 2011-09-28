@@ -10,6 +10,7 @@ class BootStrap {
 	def springSecurityService
 	//def concurrentSessionController
 	//def securityContextPersistenceFilter
+	def fixtureLoader
 	
 	def init = { servletContext ->
 		
@@ -18,7 +19,7 @@ class BootStrap {
 	//	SpringSecurityUtils.clientRegisterFilter('concurrentSessionFilter', SecurityFilterPosition.CONCURRENT_SESSION_FILTER)
 		
 		setupRoles()
-		
+		def fixtures = fixtureLoader.load("users")
 	}
 	
 	def destroy = {
