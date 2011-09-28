@@ -9,8 +9,8 @@ class MainEvent {
 		name blank:false
 		authorName blank:false
 		performer nullable: true
-		description maxSize: 50000
-		details maxSize: 50000
+		description maxSize: 50000, nullable: true
+		details maxSize: 50000, nullable: true
 		dateRejected nullable: true
     }
 	

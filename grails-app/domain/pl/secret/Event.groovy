@@ -4,8 +4,8 @@ class Event {
 
     static constraints = {
 		name blank: false
-		description maxSize: 50000
-		details maxSize: 50000
+		description maxSize: 50000, nullable: true
+		details maxSize: 50000, nullable: true
 		authorName blank: false
 		performer nullable: true
 		dateRejected nullable: true
