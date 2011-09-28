@@ -9,6 +9,7 @@ class Task {
 		authorName blank: false
 		dateDone nullable: true
 		dateRejected nullable: true
+		reasonRejected nullable: true, maxSize: 10000
     }
 	
 	static belongsTo = [Event, MainEvent, Author]
@@ -24,6 +25,7 @@ class Task {
 	Date dateDone // normalne, ręczne zakonczenie
 	Date dateCreated // data utworzenia
 	Date dateRejected
+	String reasonRejected
 	
 	String toString(){
 		return name

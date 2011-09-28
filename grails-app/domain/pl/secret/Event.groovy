@@ -9,6 +9,7 @@ class Event {
 		authorName blank: false
 		performer nullable: true
 		dateRejected nullable: true
+		reasonRejected nullable: true, maxSize: 10000
     }
 	static hasMany = [tasks: Task]
 	
@@ -25,6 +26,7 @@ class Event {
 	Date dateEventStart
 	Date dateEventEnd
 	Date dateRejected
+	String reasonRejected
 	StateType state
 	
 	String toString(){
