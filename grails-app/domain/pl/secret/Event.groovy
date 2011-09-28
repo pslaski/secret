@@ -23,6 +23,7 @@ class Event {
 	Date dateCreated
 	Date dateEventStart
 	Date dateEventEnd
+	Date dateRejected
 	StateType state
 	
 	String toString(){

@@ -21,6 +21,7 @@ class Task {
 	Date deadline // dedlajn
 	Date dateDone // normalne, ręczne zakonczenie
 	Date dateCreated // data utworzenia
+	Date dateRejected
 	
 	String toString(){
 		return name

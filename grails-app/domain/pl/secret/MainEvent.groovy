@@ -21,6 +21,7 @@ class MainEvent {
 	Date dateCreated
 	Date dateMainEventStart
 	Date dateMainEventEnd
+	Date dateRejected
 	StateType state
 	
 	String toString(){
