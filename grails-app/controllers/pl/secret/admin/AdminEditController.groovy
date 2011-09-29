@@ -52,10 +52,10 @@ class AdminEditController {
         def admin = Admin.get(params.id)
 		if(!(springSecurityService.currentUser.username.compareTo(admin.username) == 0)){
 			adminService.deleteAdmin(admin)
-			flash.message = "admin.admin.deleted"
+			flash.message = "${message(code: 'admin.deleted.admin')}"
 			redirect action: 'list'
 		} else {
-		flash.message = "admin.admin.deletedByMyself"
+		flash.message = "${message(code: 'admin.deletedByMyself')}"
 		redirect action: 'list'
 		}
 		
