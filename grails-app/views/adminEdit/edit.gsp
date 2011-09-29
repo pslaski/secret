@@ -153,7 +153,8 @@
 
 					</tbody>
 				</table>
-				</br> </br>
+				</br>
+			 	</br>
 				<div>
 					<g:message code="required.fields.label"
 						default="* - Required fields" />
@@ -186,6 +187,7 @@
 				</g:link>
 			</div>
 		</g:form>
+	</div>
 	</div>
 </body>
 </html>

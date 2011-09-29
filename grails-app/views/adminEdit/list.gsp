@@ -33,7 +33,7 @@
                         
                             <g:sortableColumn property="enabled" title="${message(code: 'default.enabled.label', default: 'Enabled')}" />
                            
-                            <g:sortableColumn property="accountExpired" title="${message(code: 'default.accountExpired.label', default: 'Account Expired')}" />
+                            <g:sortableColumn property="accountLocked" title="${message(code: 'default.accountLocked.label', default: 'Account Locked')}" />
                         
                         </tr>
                     </thead>
@@ -53,7 +53,7 @@
                             
                             <td><g:formatBoolean boolean="${admin.enabled}" /></td>
                         
-                            <td><g:formatBoolean boolean="${admin.accountExpired}" /></td>
+                            <td><g:formatBoolean boolean="${admin.accountLocked}" /></td>
                         
                         </tr>
                     </g:each>
