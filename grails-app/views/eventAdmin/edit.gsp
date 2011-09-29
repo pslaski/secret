@@ -6,16 +6,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'event.label', default: 'Event')}" />
-        <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <title><g:message code="event.edit.label"/></title>
     </head>
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><g:link class="list" action="list"><g:message code="event.list.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><g:link class="create" action="create"><g:message code="event.create.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h1><g:message code="event.edit.label"/></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -67,6 +67,16 @@
                                 </td>
                             </tr>
                         
+                        	
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="dateEventStart"><g:message code="event.dateEventStart.label" default="Date Event Start" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'dateEventStart', 'errors')}">
+                                    <g:datePicker name="dateEventStart" precision="day" value="${eventInstance?.dateEventStart}"  />
+                                </td>
+                            </tr>
+                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="dateEventEnd"><g:message code="event.dateEventEnd.label" default="Date Event End" /></label>
@@ -76,14 +86,6 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="dateEventStart"><g:message code="event.dateEventStart.label" default="Date Event Start" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: eventInstance, field: 'dateEventStart', 'errors')}">
-                                    <g:datePicker name="dateEventStart" precision="day" value="${eventInstance?.dateEventStart}"  />
-                                </td>
-                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
