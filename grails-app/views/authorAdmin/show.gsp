@@ -70,7 +70,7 @@
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${authorInstance.events}" var="e">
-                                    <li><g:link controller="event" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="eventAdmin" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
@@ -83,7 +83,7 @@
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${authorInstance.mainEvents}" var="m">
-                                    <li><g:link controller="mainEvent" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="mainEventAdmin" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
@@ -96,7 +96,7 @@
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${authorInstance.tasks}" var="t">
-                                    <li><g:link controller="task" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="taskAdmin" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

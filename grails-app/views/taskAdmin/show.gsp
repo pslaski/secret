@@ -84,7 +84,7 @@
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${taskInstance.performers}" var="p">
-                                    <li><g:link controller="author" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="authorAdmin" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

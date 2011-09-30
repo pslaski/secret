@@ -60,7 +60,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="event.performer.label" default="Performer" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="author" action="show" id="${eventInstance?.performer?.id}">${eventInstance?.performer?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="authorAdmin" action="show" id="${eventInstance?.performer?.id}">${eventInstance?.performer?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
@@ -98,7 +98,7 @@
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${eventInstance.tasks}" var="t">
-                                    <li><g:link controller="task" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="taskAdmin" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>
