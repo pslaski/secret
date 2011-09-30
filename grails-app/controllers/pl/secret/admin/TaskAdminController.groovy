@@ -1,5 +1,5 @@
 package pl.secret.admin
-import pl.secret.Task;
+import pl.secret.Task
 import grails.plugins.springsecurity.Secured
 
 @Secured(['ROLE_ADMIN'])
@@ -8,6 +8,7 @@ class TaskAdminController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
 	def springSecurityService
+	//def taskService
 	
     def index = {
         redirect(action: "list", params: params)
@@ -105,4 +106,28 @@ class TaskAdminController {
             redirect(action: "list")
         }
     }
+	//--------- Czeka na opiniowanie przez CTO ----
+	//--------- Rejectowanie
+//	def reject = {
+//		changeState { task ->
+//			task.rejectTask()
+//			taskService.update(task)
+//			flash.message = "task.reject.succes"
+//		}
+//	}
+//	
+//	private changeState(closure) {
+//		def task = Task.get(params.id)
+//		if(task) {
+//			try {
+//				closure(task)
+//			} catch(e) {
+//				println e
+//				flash.message = "task.wrong.state.change"
+//			}
+//		} else {
+//			flash.message = "task.not.found"
+//		}
+//		redirect action: 'list'
+//	}
 }

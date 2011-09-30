@@ -56,6 +56,16 @@ class Task {
 				}
 		   }
    }
+   
+// ------ Odłożone w czasie - odrzucenie taska
+//   void rejectTask() {
+//		   state = StateType.REJECTED
+//		   def today = new Date();
+//		   task.dateRejected= today;
+//		   println "Odrzucono:" + task.dateRejected;
+//		   return
+//   }
+   
 }
 
 public enum TaskType {
