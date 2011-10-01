@@ -56,17 +56,9 @@ class AuthorService {
 		
 		String comparedPass = springSecurityService.encodePassword(comPass)
 		
-		println "Stare haslo: "+oldPass
-		println "Stare wpisane haslo: "+comparedPass
-		
 		if(oldPass.equals(comparedPass)){
-			println "ZGADZA SIE!!!"
 			return true
 		}
-		if(!(oldPass.equals(comparedPass))){
-			println "NIE ZGADZA SIE!!!"
-		return false
-		}
-		
+			return false
 	}
 }

@@ -69,7 +69,7 @@ class AdminEditController {
 		}
 		def user = Admin.get(passwordCommand.id)
 
-		if(authorService.oldPasswordValidator(user.password, passwordCommand.password)){
+		if(authorService.oldPasswordValidator(user.password, passwordCommand.oldPassword)){
 
 			user.password = springSecurityService.encodePassword(passwordCommand.password)
 			try {
@@ -79,12 +79,10 @@ class AdminEditController {
 				return
 			}
 			flash.message = "${message(code: 'admin.passwordChangeSuccess')}"
-			redirect action: 'show', id: passwordCommand.id
 		}
-		if(!(authorService.oldPasswordValidator(user.password, passwordCommand.password))){
+		else
 			flash.message = "${message(code: 'admin.passwordChangeFail')}"
-			redirect action: 'show', id: passwordCommand.id
-		}
+			redirect action: 'show', id: passwordCommand.id	
 	}
 
 	def create = {

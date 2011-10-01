@@ -53,7 +53,7 @@
 
 						<tr class="prop">
 							<td valign="top" class="name"><label for="password"><g:message
-										code="default.password.label" /> </label>
+										code="default.newPassword.label" /> </label>
 							</td>
 
 							<td valign="top"
