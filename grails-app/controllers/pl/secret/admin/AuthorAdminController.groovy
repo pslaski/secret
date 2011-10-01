@@ -1,6 +1,8 @@
 package pl.secret.admin
 import pl.secret.Author;
+import pl.secret.security.User
 import grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.SpringSecurityService;
 
 @Secured(['ROLE_ADMIN'])
 class AuthorAdminController {
@@ -66,6 +68,9 @@ class AuthorAdminController {
 			return
 		}
 		def user = Author.get(passwordCommand.id)
+		
+		
+		
 		user.password = springSecurityService.encodePassword(passwordCommand.password)
 		try {
 			authorService.updateWithoutRoles(user)
@@ -74,6 +79,9 @@ class AuthorAdminController {
 			return
 		}
 		redirect action: 'edit', id: passwordCommand.id
+		
+		
+		
 	}
 
 	def create = {
@@ -130,16 +138,20 @@ class NewAuthorCommand {
 	
 	// potem przenieść to do jakiejś innej paczki
 	class UserPassswordChangeCommand {
+		
 		static constraints = {
+			oldPassword blank: false, minSize: 6
 			password blank: false, minSize: 6
 			repeatPassword validator: {val, obj ->
+		
 				if (val != obj.password) {
 					return "passwordsDoNotMatch"
 				}
 				return true
 			}
 		}
-	
+		
+		String oldPassword
 		String password
 		String repeatPassword
 		int id

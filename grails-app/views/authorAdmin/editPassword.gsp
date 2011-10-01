@@ -34,6 +34,22 @@
 			<fieldset>
 				<table>
 					<tbody>
+					
+					<tr class="prop">
+							<td valign="top" class="name"><label for="oldPassword"><g:message
+										code="default.oldPassword.label" /> </label>
+							</td>
+
+							<td valign="top"
+								class="value ${hasErrors(bean: passwordCommand, field: 'oldPassword', 'errors')}">
+
+								<div>
+									<g:passwordField name="oldPassword" id="oldPassword"
+										value="${passwordCommand.oldPassword}" class="text" />
+									<span class="required">*</span>
+								</div>
+							</td>
+						</tr>
 
 						<tr class="prop">
 							<td valign="top" class="name"><label for="password"><g:message

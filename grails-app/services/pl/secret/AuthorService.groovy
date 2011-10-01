@@ -51,5 +51,22 @@ class AuthorService {
 		def authors = UserRole.findAllByRole(role, params).collect { it.user }
 		return [authors: authors, authorsTotal: UserRole.findAllByRole(role).size()]
 	}
-
+	
+	boolean oldPasswordValidator(String oldPass, String comPass){
+		
+		String comparedPass = springSecurityService.encodePassword(comPass)
+		
+		println "Stare haslo: "+oldPass
+		println "Stare wpisane haslo: "+comparedPass
+		
+		if(oldPass.equals(comparedPass)){
+			println "ZGADZA SIE!!!"
+			return true
+		}
+		if(!(oldPass.equals(comparedPass))){
+			println "NIE ZGADZA SIE!!!"
+		return false
+		}
+		
+	}
 }

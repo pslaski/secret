@@ -15,76 +15,84 @@ class AdminEditController {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		return adminService.getAdmins()
 	}
-	
+
 	def show = {
 		def user = Admin.get(params.id)
 		render view: "show", model: [admin: user]
 	}
-	
+
 	def edit = {
 		def user = Admin.get(params.id)
 		render view: "edit", model: [admin: user]
-	}	
-	
+	}
+
 	def update = {
-		
+
 		def admin = Admin.get(params.id)
 		bindData(admin, params, ['id'])
 		try {
-			
+
 			if (!admin.validate()) {
 				throw e
 			}
 			adminService.updateAdmin(admin)
-			} catch(e) {
+		} catch(e) {
 			render view: "edit", model: [admin: admin]
 		}
 		flash.message = "${message(code: 'admin.updateSuccess')}"
 		redirect action: "list"
 	}
 
-    def editPassword = {
+	def editPassword = {
 		[passwordCommand: new UserPassswordChangeCommand(id: params.int("id"))]
 	}
-	
-	
+
+
 	def delete = {
-        def admin = Admin.get(params.id)
+		def admin = Admin.get(params.id)
 		if(!(springSecurityService.currentUser.username.compareTo(admin.username) == 0)){
 			adminService.deleteAdmin(admin)
 			flash.message = "${message(code: 'admin.deleted.admin')}"
 			redirect action: 'list'
 		} else {
-		flash.message = "${message(code: 'admin.deletedByMyself')}"
-		redirect action: 'list'
+			flash.message = "${message(code: 'admin.deletedByMyself')}"
+			redirect action: 'list'
 		}
-		
-        
-    }
-	
+	}
+
+	def authorService
+
 	def changePassword = { UserPassswordChangeCommand passwordCommand ->
 		if (passwordCommand.hasErrors()) {
 			render view: "editPassword", model: [passwordCommand: passwordCommand]
 			return
 		}
 		def user = Admin.get(passwordCommand.id)
-		user.password = springSecurityService.encodePassword(passwordCommand.password)
-		try {
-			adminService.updateAdmin(user)
-		} catch (e) {
-			render view: 'editPassword', model: [passwordCommand: passwordCommand]
-			return
+
+		if(authorService.oldPasswordValidator(user.password, passwordCommand.password)){
+
+			user.password = springSecurityService.encodePassword(passwordCommand.password)
+			try {
+				adminService.updateAdmin(user)
+			} catch (e) {
+				render view: 'editPassword', model: [passwordCommand: passwordCommand]
+				return
+			}
+			flash.message = "${message(code: 'admin.passwordChangeSuccess')}"
+			redirect action: 'show', id: passwordCommand.id
 		}
-		flash.message = "${message(code: 'admin.passwordChangeSuccess')}"
-		redirect action: 'show', id: passwordCommand.id
+		if(!(authorService.oldPasswordValidator(user.password, passwordCommand.password))){
+			flash.message = "${message(code: 'admin.passwordChangeFail')}"
+			redirect action: 'show', id: passwordCommand.id
+		}
 	}
 
-    def create = {
-        [admin: new NewAdminCommand()]
-    }
+	def create = {
+		[admin: new NewAdminCommand()]
+	}
 
-    def save = { NewAdminCommand command ->
-        def admin = new Admin(command.properties)
+	def save = { NewAdminCommand command ->
+		def admin = new Admin(command.properties)
 		admin.password = springSecurityService.encodePassword(admin.password)
 		admin.validate()
 		if(command.hasErrors() || admin.hasErrors()) {
@@ -104,21 +112,20 @@ class AdminEditController {
 		}
 		flash.message = "${message(code: 'admin.creationSuccess')}"
 		redirect action: 'list'
-
-    }
-} 
+	}
+}
 
 class NewAdminCommand {
 
 	static constraints = {
 		password blank: false, minSize: 6
 		repeatPassword blank: false, minSize: 6,
-		validator: {val, obj ->
-			if (val != obj.password) {
-				return "passwordsDoNotMatch"
-			}
-			return true
-		}
+				validator: {val, obj ->
+					if (val != obj.password) {
+						return "passwordsDoNotMatch"
+					}
+					return true
+				}
 	}
 	String username
 	String name
@@ -126,7 +133,7 @@ class NewAdminCommand {
 	String password
 	String repeatPassword
 	boolean enabled = true
-//	boolean accountExpired = false
-	boolean accountLocked = false 
-//	boolean passwordExpired = false
+	//	boolean accountExpired = false
+	boolean accountLocked = false
+	//	boolean passwordExpired = false
 }
