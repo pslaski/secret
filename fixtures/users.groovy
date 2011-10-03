@@ -12,7 +12,7 @@ fixture {
 	
 	admin(Admin,
 		username: 'admin',
-		password: springSecurityService.encodePassword('admin'),
+		password: springSecurityService.encodePassword('aadmin'),
 		name: 'Andrzej',
 		surname: 'Korwin',
 		enabled: true)
@@ -23,7 +23,7 @@ fixture {
 	
 	author(Author,
 		username: 'revan',
-		password: springSecurityService.encodePassword('arkag'),
+		password: springSecurityService.encodePassword('arkaag'),
 		name: 'Dorian',
 		surname: 'Sawa',
 		enabled: true)
@@ -45,7 +45,7 @@ fixture {
 	
 	author3(Author,
 		username: 'cizem',
-		password: springSecurityService.encodePassword('barca'),
+		password: springSecurityService.encodePassword('fcbarca'),
 		name: 'Maciej',
 		surname: 'Nowocień',
 		enabled: true)
